@@ -35,20 +35,21 @@ function ssr(){
         echo "muKey = ${muKey}"
         echo "-----------------------------------------------------"
         echo
-        read -p "Please input Offsetted Port(Default Port:10086)：" port_1
-        [ -z "${port_1}" ] && port_1=10086
+        read -p "Please input Offsetted Port(Offsetted Port:10089)：" port_1
+        [ -z "${port_1}" ] && port_1=10089
         echo
         echo "-----------------------------------------------------"
         echo "port_1 = ${port_1}"
         echo "-----------------------------------------------------"
         echo
-        read -p "Please input Origin Port(Default Port:10089)：" port_2
-        [ -z "${port_2}" ] && port_2=10089
-        echo
-        echo "-----------------------------------------------------"
-        echo "port_2 = ${port_2}"
-        echo "-----------------------------------------------------"
-        echo
+        port_2=10086
+#        read -p "Please input Origin Port(Origin Port:10086)：" port_2
+#        [ -z "${port_2}" ] && port_2=10086
+#        echo
+#        echo "-----------------------------------------------------"
+#        echo "port_2 = ${port_2}"
+#        echo "-----------------------------------------------------"
+#        echo
 
         docker run -d --name=s${nodeid} -e NODE_ID=${nodeid} -e API_INTERFACE=modwebapi -e WEBAPI_URL=${host}  -e SPEEDTEST=0 -e WEBAPI_TOKEN=${muKey} --log-opt max-size=50m --log-opt max-file=3 -p ${port_1}:${port_2}/tcp -p ${port_1}:${port_2}/udp  --restart=always v2raysrgo/ssrgo
 
