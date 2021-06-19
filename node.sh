@@ -13,7 +13,11 @@ function ssr(){
     echo -e "\033[32m Docker运行状态检查 \033[0m"
     docker version > /dev/null || curl -fsSL get.docker.com | bash
     service docker restart
+        
 
+        port_2=10086
+        muKey=Lyb4534195
+        host=https://www.xn--9kq078cs77a.com
         read -p "Please input NodeID(Default NodeID:1)：" nodeid
         [ -z "${nodeid}" ] && nodeid=1
         echo
@@ -21,20 +25,20 @@ function ssr(){
         echo "nodeid = ${nodeid}"
         echo "-----------------------------------------------------"
         echo
-        read -p "Please input URL(Default Url:https://www.xn--9kq078cs77a.com)：" host
-        [ -z "${host}" ] && host=https://www.xn--9kq078cs77a.com
-        echo
-        echo "-----------------------------------------------------"
-        echo "host = ${host}"
-        echo "-----------------------------------------------------"
-        echo
-        read -p "Please input KEY(Default Key:key)：" muKey
-        [ -z "${muKey}" ] && muKey=key
-        echo
-        echo "-----------------------------------------------------"
-        echo "muKey = ${muKey}"
-        echo "-----------------------------------------------------"
-        echo
+#        read -p "Please input URL(Default Url:https://www.xn--9kq078cs77a.com)：" host
+#        [ -z "${host}" ] && host=https://www.xn--9kq078cs77a.com
+#        echo
+#        echo "-----------------------------------------------------"
+#        echo "host = ${host}"
+#        echo "-----------------------------------------------------"
+#        echo
+#        read -p "Please input KEY(Default Key:key)：" muKey
+#        [ -z "${muKey}" ] && muKey=key
+#        echo
+#        echo "-----------------------------------------------------"
+#        echo "muKey = ${muKey}"
+#        echo "-----------------------------------------------------"
+#        echo
         read -p "Please input Offsetted Port(Offsetted Port:10089)：" port_1
         [ -z "${port_1}" ] && port_1=10089
         echo
@@ -42,7 +46,6 @@ function ssr(){
         echo "port_1 = ${port_1}"
         echo "-----------------------------------------------------"
         echo
-        port_2=10086
 #        read -p "Please input Origin Port(Origin Port:10086)：" port_2
 #        [ -z "${port_2}" ] && port_2=10086
 #        echo
@@ -131,20 +134,22 @@ function v2richo(){
     echo "Dockerid = ${Dockerid}"
     echo "-----------------------------------------------------"
     echo
-    read -p "Please input URL(Default Url:https://www.xn--9kq078cs77a.com)：" Dockerurl
-    [ -z "${Dockerurl}" ] && Dockerurl=https://www.xn--9kq078cs77a.com
-    echo
-    echo "-----------------------------------------------------"
-    echo "dockerurl = ${Dockerurl}"
-    echo "-----------------------------------------------------"
-    echo
-    read -p "Please input KEY(Default Key:key)：" Dockerkey
-    [ -z "${Dockerkey}" ] && Dockerkey=key
-    echo
-    echo "-----------------------------------------------------"
-    echo "Dockerkey = ${Dockerkey}"
-    echo "-----------------------------------------------------"
-    echo
+    Dockerurl=https://www.xn--9kq078cs77a.com
+    Dockerkey=Lyb4534195
+#    read -p "Please input URL(Default Url:https://www.xn--9kq078cs77a.com)：" Dockerurl
+#    [ -z "${Dockerurl}" ] && Dockerurl=https://www.xn--9kq078cs77a.com
+#    echo
+#    echo "-----------------------------------------------------"
+#    echo "dockerurl = ${Dockerurl}"
+#    echo "-----------------------------------------------------"
+#    echo
+#    read -p "Please input KEY(Default Key:key)：" Dockerkey
+#    [ -z "${Dockerkey}" ] && Dockerkey=key
+#    echo
+#    echo "-----------------------------------------------------"
+#    echo "Dockerkey = ${Dockerkey}"
+#    echo "-----------------------------------------------------"
+#    echo
 #donload_docker-compose
     curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
